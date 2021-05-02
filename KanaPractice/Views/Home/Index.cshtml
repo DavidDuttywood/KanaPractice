@@ -1,0 +1,17 @@
+﻿@model KanaPractice.Models.Question
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <form id="questionForm">
+        <h1 class="display-4">@Model.TextString</h1>
+        @{
+            foreach (string answer in Model.PossibleAnswers)
+            {
+                <button type="submit" form="questionForm" value="@answer">@answer</button>
+            }
+        }
+    </form>
+</div>
