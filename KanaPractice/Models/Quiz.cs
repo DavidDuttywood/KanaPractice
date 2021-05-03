@@ -33,34 +33,33 @@ namespace KanaPractice.Models
             questions.Add(new Question(8, "く", "ku"));
             questions.Add(new Question(9, "け", "ke"));
             questions.Add(new Question(10, "こ", "ko"));
-
+            //todo - add all alphabet
             return questions;
         }
-
+         
 
         public QuestionViewModel GetNextQuestion()
         {
             Random r = new Random();
             int listSize = this.Questions.Count;
 
-            QuestionViewModel qvm = new QuestionViewModel();
-
             Question q = this.Questions[r.Next(0, listSize)];
-
-            qvm.Id = q.Id;
-            qvm.TextString = q.TextString;
-            qvm.Romanised = q.Romanised;
-            qvm.PossibleAnswers = new List<string>();
+            QuestionViewModel qvm = new QuestionViewModel(q.Id, q.TextString, q.Romanised);
 
             //get the choices for the question
             qvm.PossibleAnswers.Clear();
             qvm.PossibleAnswers.Add(q.Romanised);
-            qvm.PossibleAnswers.Add(this.AnswerBank[r.Next(0, listSize)]);
-            qvm.PossibleAnswers.Add(this.AnswerBank[r.Next(0, listSize)]);
+            while(qvm.PossibleAnswers.Count < 3)
+            {
+                string next = this.AnswerBank[r.Next(0, listSize)];
+                if (!qvm.PossibleAnswers.Contains(next))
+                {
+                    qvm.PossibleAnswers.Add(next);
+                }
+            }
 
-            //shuffle?
-
-            //return a question object to the view
+            //shuffle - order by random GUID (inexpensive for small list)
+            qvm.PossibleAnswers = qvm.PossibleAnswers.OrderBy(x => Guid.NewGuid()).ToList();
 
             return qvm;
         }

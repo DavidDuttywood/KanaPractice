@@ -33,4 +33,4 @@ C:\Users\David\source\repos\KanaPractice\KanaPractice\obj\Debug\netcoreapp3.1\Ka
 C:\Users\David\source\repos\KanaPractice\KanaPractice\obj\Debug\netcoreapp3.1\KanaPractice.pdb
 C:\Users\David\source\repos\KanaPractice\KanaPractice\obj\Debug\netcoreapp3.1\KanaPractice.genruntimeconfig.cache
 C:\Users\David\source\repos\KanaPractice\KanaPractice\obj\Debug\netcoreapp3.1\KanaPractice.csproj.CopyComplete
-C:\Users\david\source\repos\KanaPractice\KanaPractice\obj\Debug\netcoreapp3.1\scopedcss\bundle\KanaPractice.styles.css
+C:\Users\David\source\repos\KanaPractice\KanaPractice\bin\Debug\netcoreapp3.1\Properties\launchSettings.json

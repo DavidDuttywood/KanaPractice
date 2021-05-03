@@ -13,11 +13,6 @@ namespace KanaPractice.Models
 
         public string Romanised { get; set; }
 
-        public Question()
-        {
-
-        }
-
         public Question(int id, string text, string romanised)
         {
             this.Id = id;

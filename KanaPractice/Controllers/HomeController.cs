@@ -26,11 +26,11 @@ namespace KanaPractice.Controllers
         }
 
         [HttpPost]
-        public ViewResult Index(QuestionViewModel question, string btn)
+        public ViewResult Index(QuestionViewModel question, string chosenAnswer)
         {
             ModelState.Clear(); //why do i need this?
 
-            if (question.Romanised == btn)
+            if (question.Romanised == chosenAnswer)
             {
                 Console.WriteLine("Correct");
             }
@@ -42,9 +42,6 @@ namespace KanaPractice.Controllers
             QuestionViewModel qvm = _quiz.GetNextQuestion();
             return View(qvm);
         }
-
-
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

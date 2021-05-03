@@ -15,5 +15,20 @@ namespace KanaPractice.Models
 
         public List<String> PossibleAnswers { get; set; }
 
+        public QuestionViewModel()
+        {
+
+        }
+
+        public QuestionViewModel(int id, string text, string romanised)
+        {
+            this.Id = id;
+
+            this.TextString = text;
+
+            this.Romanised = romanised;
+
+            this.PossibleAnswers = new List<String>();
+        }
     }
 }
