@@ -15,12 +15,14 @@ namespace KanaPractice.Models
 
         public List<String> PossibleAnswers { get; set; }
 
+        public int Lives { get; set; }
+
         public QuestionViewModel()
         {
 
         }
 
-        public QuestionViewModel(int id, string text, string romanised)
+        public QuestionViewModel(int id, string text, string romanised, int lives)
         {
             this.Id = id;
 
@@ -29,6 +31,8 @@ namespace KanaPractice.Models
             this.Romanised = romanised;
 
             this.PossibleAnswers = new List<String>();
+
+            this.Lives = lives;
         }
     }
 }

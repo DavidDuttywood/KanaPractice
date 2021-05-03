@@ -9,13 +9,15 @@
         <input hidden asp-for="Id" />
         <input hidden asp-for="TextString" />
         <input hidden asp-for="Romanised" />
-
-        <h1 class="display-4">@Model.TextString</h1>
+        <p>lives: @Model.Lives</p>
+        <div class="test-character">
+            <p>@Model.TextString</p>
+        </div>
         @{
             int i = 0;
             foreach (string answer in Model.PossibleAnswers)
             {
-                <button type="submit" name="chosenAnswer" value="@answer" id="SaveNew">@answer</button>
+                <button type="submit" class="btn btn-primary btn-lg" name="chosenAnswer" value="@answer" id="SaveNew">@answer</button>
             }
         }
     </form>

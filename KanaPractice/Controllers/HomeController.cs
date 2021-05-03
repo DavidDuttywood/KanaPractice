@@ -37,10 +37,26 @@ namespace KanaPractice.Controllers
             else
             {
                 Console.WriteLine("Incorrect");
+                _quiz.Lives--;
             }
 
+            if(_quiz.Lives > 0)
+            {
+                QuestionViewModel qvm = _quiz.GetNextQuestion();
+                return View(qvm);
+            }
+            else
+            {
+                return View("GameOver");
+            }
+
+        }
+
+        public ViewResult Reset()
+        {
+            _quiz.Lives = 3;
             QuestionViewModel qvm = _quiz.GetNextQuestion();
-            return View(qvm);
+            return View("Index", qvm);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
