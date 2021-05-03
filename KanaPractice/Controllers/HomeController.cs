@@ -21,34 +21,26 @@ namespace KanaPractice.Controllers
         [HttpGet]
         public ViewResult Index()
         {
-            Random r = new Random();
-            int listSize = _quiz.Questions.Count;
-
-
-            //MAKE ANOTHER CONTROLLER AND INSTANCIATE THE SAME _QUIZ, TRY AND REMOVE FROM EACH CONTROLLER TO SEE IF IT SHARES.
-
-            //APPRAOCH WILL BE SELECT RANDOM INT FROM LIST OF IDS IN SESSION SO DONT NEED TO CHANGE THE LIST IN QUIZ QUESTIONS PROP
-
-
-            //get a random question (move all this into Quiz class?)
-            Question q = _quiz.Questions[r.Next(0, listSize)];
-
-            //get the choices for the question
-            q.PossibleAnswers.Clear();
-            q.PossibleAnswers.Add(q.Romanised);
-            q.PossibleAnswers.Add(_quiz.AnswerBank[r.Next(0, listSize)]);
-            q.PossibleAnswers.Add(_quiz.AnswerBank[r.Next(0, listSize)]);
-
-            //shuffle?
-
-            //return a question object to the view
-            return View(q);
+            QuestionViewModel qvm = _quiz.GetNextQuestion();
+            return View(qvm);
         }
 
         [HttpPost]
-        public ViewResult Index(int var)
+        public ViewResult Index(QuestionViewModel question, string btn)
         {
-            throw new NotImplementedException();
+            ModelState.Clear(); //why do i need this?
+
+            if (question.Romanised == btn)
+            {
+                Console.WriteLine("Correct");
+            }
+            else
+            {
+                Console.WriteLine("Incorrect");
+            }
+
+            QuestionViewModel qvm = _quiz.GetNextQuestion();
+            return View(qvm);
         }
 
 

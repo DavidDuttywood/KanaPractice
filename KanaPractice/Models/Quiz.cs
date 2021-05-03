@@ -36,5 +36,33 @@ namespace KanaPractice.Models
 
             return questions;
         }
+
+
+        public QuestionViewModel GetNextQuestion()
+        {
+            Random r = new Random();
+            int listSize = this.Questions.Count;
+
+            QuestionViewModel qvm = new QuestionViewModel();
+
+            Question q = this.Questions[r.Next(0, listSize)];
+
+            qvm.Id = q.Id;
+            qvm.TextString = q.TextString;
+            qvm.Romanised = q.Romanised;
+            qvm.PossibleAnswers = new List<string>();
+
+            //get the choices for the question
+            qvm.PossibleAnswers.Clear();
+            qvm.PossibleAnswers.Add(q.Romanised);
+            qvm.PossibleAnswers.Add(this.AnswerBank[r.Next(0, listSize)]);
+            qvm.PossibleAnswers.Add(this.AnswerBank[r.Next(0, listSize)]);
+
+            //shuffle?
+
+            //return a question object to the view
+
+            return qvm;
+        }
     }
 }

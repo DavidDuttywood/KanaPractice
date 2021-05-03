@@ -1,16 +1,21 @@
-﻿@model KanaPractice.Models.Question
+﻿@model KanaPractice.Models.QuestionViewModel
 
 @{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <form id="questionForm">
+    <form asp-controller="Home" asp-action="Index" method="post">
+        <input hidden asp-for="Id" />
+        <input hidden asp-for="TextString" />
+        <input hidden asp-for="Romanised" />
+
         <h1 class="display-4">@Model.TextString</h1>
         @{
+            int i = 0;
             foreach (string answer in Model.PossibleAnswers)
             {
-                <button type="submit" form="questionForm" value="@answer">@answer</button>
+                <button type="submit" name="btn" value="@answer" id="SaveNew">@answer</button>
             }
         }
     </form>

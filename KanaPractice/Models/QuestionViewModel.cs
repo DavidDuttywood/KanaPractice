@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace KanaPractice.Models
 {
-    public class Question
+    public class QuestionViewModel
     {
         public int Id { get; set; }
 
@@ -13,19 +13,7 @@ namespace KanaPractice.Models
 
         public string Romanised { get; set; }
 
-        public Question()
-        {
-
-        }
-
-        public Question(int id, string text, string romanised)
-        {
-            this.Id = id;
-
-            this.TextString = text;
-
-            this.Romanised = romanised;
-        }
+        public List<String> PossibleAnswers { get; set; }
 
     }
 }
