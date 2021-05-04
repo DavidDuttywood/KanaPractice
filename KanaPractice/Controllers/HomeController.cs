@@ -32,11 +32,10 @@ namespace KanaPractice.Controllers
 
             if (question.Romanised == chosenAnswer)
             {
-                Console.WriteLine("Correct");
+                _quiz.Score++;
             }
             else
             {
-                Console.WriteLine("Incorrect");
                 _quiz.Lives--;
             }
 
@@ -47,7 +46,8 @@ namespace KanaPractice.Controllers
             }
             else
             {
-                return View("GameOver");
+                GameOverViewModel govm = new GameOverViewModel(_quiz.Score);
+                return View("GameOver", govm);
             }
 
         }
@@ -55,6 +55,7 @@ namespace KanaPractice.Controllers
         public ViewResult Reset()
         {
             _quiz.Lives = 3;
+            _quiz.Score = 0;
             QuestionViewModel qvm = _quiz.GetNextQuestion();
             return View("Index", qvm);
         }

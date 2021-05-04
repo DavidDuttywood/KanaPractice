@@ -12,6 +12,8 @@ namespace KanaPractice.Models
 
         public int Lives { get; set; }
 
+        public int Score { get; set; }
+
         public Quiz()
         {
             this.Questions = GetQuestions();
@@ -20,6 +22,8 @@ namespace KanaPractice.Models
             this.AnswerBank = this.Questions.Select(o => o.Romanised).ToList();
 
             this.Lives = 3;
+
+            this.Score = 0;
         }
 
         private List<Question> GetQuestions()
@@ -47,7 +51,7 @@ namespace KanaPractice.Models
             int listSize = this.Questions.Count;
 
             Question q = this.Questions[r.Next(0, listSize)];
-            QuestionViewModel qvm = new QuestionViewModel(q.Id, q.TextString, q.Romanised, this.Lives);
+            QuestionViewModel qvm = new QuestionViewModel(q.Id, q.TextString, q.Romanised, this.Lives, this.Score);
 
             //get the choices for the question
             qvm.PossibleAnswers.Clear();

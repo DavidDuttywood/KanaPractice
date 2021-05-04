@@ -1,4 +1,7 @@
-﻿<form>
+﻿@model KanaPractice.Models.GameOverViewModel
+
+<form>
     <p>you dead</p>
+    <p>final score: @Model.Score</p>
     <button asp-controller="home" asp-action="reset" type="submit">play again</button>
 </form>
