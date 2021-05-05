@@ -30,14 +30,10 @@ namespace KanaPractice.Controllers
         {
             ModelState.Clear(); //why do i need this?
 
-            if (question.Romanised == chosenAnswer)
-            {
+            if (question.Answer == chosenAnswer)
                 _quiz.Score++;
-            }
             else
-            {
                 _quiz.Lives--;
-            }
 
             if(_quiz.Lives > 0)
             {
@@ -52,12 +48,12 @@ namespace KanaPractice.Controllers
 
         }
 
-        public ViewResult Reset()
+        public ActionResult Reset()
         {
             _quiz.Lives = 3;
             _quiz.Score = 0;
-            QuestionViewModel qvm = _quiz.GetNextQuestion();
-            return View("Index", qvm);
+
+            return RedirectToAction("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

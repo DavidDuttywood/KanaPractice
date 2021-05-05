@@ -33,7 +33,6 @@ C:\Users\David\source\repos\KanaPractice\KanaPractice\obj\Debug\netcoreapp3.1\Ka
 C:\Users\David\source\repos\KanaPractice\KanaPractice\obj\Debug\netcoreapp3.1\KanaPractice.pdb
 C:\Users\David\source\repos\KanaPractice\KanaPractice\obj\Debug\netcoreapp3.1\KanaPractice.genruntimeconfig.cache
 C:\Users\David\source\repos\KanaPractice\KanaPractice\obj\Debug\netcoreapp3.1\KanaPractice.csproj.CopyComplete
-C:\Users\david\source\repos\KanaPractice\KanaPractice\obj\Debug\netcoreapp3.1\scopedcss\bundle\KanaPractice.styles.css
 C:\Users\david\source\repos\KanaPractice\KanaPractice\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\david\source\repos\KanaPractice\KanaPractice\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
 C:\Users\david\source\repos\KanaPractice\KanaPractice\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
@@ -108,3 +107,4 @@ C:\Users\david\source\repos\KanaPractice\KanaPractice\bin\Debug\netcoreapp3.1\tr
 C:\Users\david\source\repos\KanaPractice\KanaPractice\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\david\source\repos\KanaPractice\KanaPractice\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\david\source\repos\KanaPractice\KanaPractice\obj\Debug\netcoreapp3.1\Razor\Views\Home\GameOver.cshtml.g.cs
+C:\Users\David\source\repos\KanaPractice\KanaPractice\bin\Debug\netcoreapp3.1\Properties\launchSettings.json

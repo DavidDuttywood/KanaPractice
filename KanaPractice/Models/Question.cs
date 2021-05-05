@@ -9,17 +9,17 @@ namespace KanaPractice.Models
     {
         public int Id { get; set; }
 
-        public string TextString { get; set; }
+        public string QuestionTextString { get; set; }
 
-        public string Romanised { get; set; }
+        public string Answer { get; set; }
 
-        public Question(int id, string text, string romanised)
+        public Question(int id, string text, string answer)
         {
             this.Id = id;
 
-            this.TextString = text;
+            this.QuestionTextString = text;
 
-            this.Romanised = romanised;
+            this.Answer = answer;
         }
 
     }

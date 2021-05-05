@@ -9,9 +9,9 @@ namespace KanaPractice.Models
     {
         public int Id { get; set; }
 
-        public string TextString { get; set; }
+        public string QuestionTextString { get; set; }
 
-        public string Romanised { get; set; }
+        public string Answer { get; set; }
 
         public List<String> PossibleAnswers { get; set; }
 
@@ -24,13 +24,13 @@ namespace KanaPractice.Models
 
         }
 
-        public QuestionViewModel(int id, string text, string romanised, int lives, int score)
+        public QuestionViewModel(int id, string questiontext, string answer, int lives, int score)
         {
             this.Id = id;
 
-            this.TextString = text;
+            this.QuestionTextString = questiontext;
 
-            this.Romanised = romanised;
+            this.Answer = answer;
 
             this.PossibleAnswers = new List<String>();
 

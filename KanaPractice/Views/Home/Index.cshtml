@@ -7,18 +7,17 @@
 <div class="text-center">
     <form asp-controller="Home" asp-action="Index" method="post">
         <input hidden asp-for="Id" />
-        <input hidden asp-for="TextString" />
-        <input hidden asp-for="Romanised" />
+        <input hidden asp-for="QuestionTextString" />
+        <input hidden asp-for="Answer" />
         <p>score: @Model.Score</p>
         <p>lives: @Model.Lives</p>
         <div class="test-character">
-            <p>@Model.TextString</p>
+            <p>@Model.QuestionTextString</p>
         </div>
         @{
-            int i = 0;
-            foreach (string answer in Model.PossibleAnswers)
+            foreach (string posAnswer in Model.PossibleAnswers)
             {
-                <button type="submit" class="btn btn-primary btn-lg" name="chosenAnswer" value="@answer" id="SaveNew">@answer</button>
+                <button type="submit" class="btn btn-primary btn-lg" name="chosenAnswer" value="@posAnswer" id="SaveNew">@posAnswer</button>
             }
         }
     </form>

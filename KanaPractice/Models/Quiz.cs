@@ -9,9 +9,7 @@ namespace KanaPractice.Models
     {
         public List<Question> Questions { get; set; }
         public List<String> AnswerBank { get; set; }
-
         public int Lives { get; set; }
-
         public int Score { get; set; }
 
         public Quiz()
@@ -19,7 +17,7 @@ namespace KanaPractice.Models
             this.Questions = GetQuestions();
 
             //is this janky (to reference this.Questions right after initialising?)
-            this.AnswerBank = this.Questions.Select(o => o.Romanised).ToList();
+            this.AnswerBank = this.Questions.Select(o => o.Answer).ToList();
 
             this.Lives = 3;
 
@@ -51,11 +49,11 @@ namespace KanaPractice.Models
             int listSize = this.Questions.Count;
 
             Question q = this.Questions[r.Next(0, listSize)];
-            QuestionViewModel qvm = new QuestionViewModel(q.Id, q.TextString, q.Romanised, this.Lives, this.Score);
+            QuestionViewModel qvm = new QuestionViewModel(q.Id, q.QuestionTextString, q.Answer, this.Lives, this.Score);
 
             //get the choices for the question
             qvm.PossibleAnswers.Clear();
-            qvm.PossibleAnswers.Add(q.Romanised);
+            qvm.PossibleAnswers.Add(q.Answer);
             while(qvm.PossibleAnswers.Count < 3)
             {
                 string next = this.AnswerBank[r.Next(0, listSize)];
