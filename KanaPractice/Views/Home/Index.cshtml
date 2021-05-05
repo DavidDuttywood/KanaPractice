@@ -14,7 +14,7 @@
         <div class="test-character">
             <p>@Model.QuestionTextString</p>
         </div>
-        @{
+        @{ //wrap buttons and make 50% wide per button.
             foreach (string posAnswer in Model.PossibleAnswers)
             {
                 <button type="submit" class="btn btn-primary btn-lg" name="chosenAnswer" value="@posAnswer" id="SaveNew">@posAnswer</button>

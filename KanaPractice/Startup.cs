@@ -27,7 +27,8 @@ namespace KanaPractice
         {
             services.AddDbContextPool<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("QuestionDBConnection")));
             services.AddControllersWithViews();
-            services.AddSingleton<Quiz>();
+            services.AddSingleton<IQuestionRepo, MockQuestionRepo>();
+            services.AddSingleton<Game>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

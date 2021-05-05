@@ -11,17 +11,17 @@ namespace KanaPractice.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly Quiz _quiz;
+        private readonly Game _game;
 
-        public HomeController(Quiz quiz)
+        public HomeController(Game game)
         {
-            _quiz = quiz;
+            _game = game;
         }
 
         [HttpGet]
         public ViewResult Index()
         {
-            QuestionViewModel qvm = _quiz.GetNextQuestion();
+            QuestionViewModel qvm = _game.GetNextQuestion();
             return View(qvm);
         }
 
@@ -31,18 +31,18 @@ namespace KanaPractice.Controllers
             ModelState.Clear(); //why do i need this?
 
             if (question.Answer == chosenAnswer)
-                _quiz.Score++;
+                _game.Score++;
             else
-                _quiz.Lives--;
+                _game.Lives--;
 
-            if(_quiz.Lives > 0)
+            if(_game.Lives > 0)
             {
-                QuestionViewModel qvm = _quiz.GetNextQuestion();
+                QuestionViewModel qvm = _game.GetNextQuestion();
                 return View(qvm);
             }
             else
             {
-                GameOverViewModel govm = new GameOverViewModel(_quiz.Score);
+                GameOverViewModel govm = new GameOverViewModel(_game.Score);
                 return View("GameOver", govm);
             }
 
@@ -50,8 +50,8 @@ namespace KanaPractice.Controllers
 
         public ActionResult Reset()
         {
-            _quiz.Lives = 3;
-            _quiz.Score = 0;
+            _game.Lives = 3;
+            _game.Score = 0;
 
             return RedirectToAction("Index");
         }
