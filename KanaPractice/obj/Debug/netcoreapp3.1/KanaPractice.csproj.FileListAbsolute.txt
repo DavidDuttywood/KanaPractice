@@ -9,8 +9,6 @@ C:\Users\David\source\repos\KanaPractice\KanaPractice\bin\Debug\netcoreapp3.1\Ka
 C:\Users\David\source\repos\KanaPractice\KanaPractice\bin\Debug\netcoreapp3.1\KanaPractice.Views.dll
 C:\Users\David\source\repos\KanaPractice\KanaPractice\bin\Debug\netcoreapp3.1\KanaPractice.Views.pdb
 C:\Users\David\source\repos\KanaPractice\KanaPractice\obj\Debug\netcoreapp3.1\KanaPractice.csprojAssemblyReference.cache
-C:\Users\David\source\repos\KanaPractice\KanaPractice\obj\Debug\netcoreapp3.1\KanaPractice.csproj.CoreCompileInputs.cache
-C:\Users\David\source\repos\KanaPractice\KanaPractice\obj\Debug\netcoreapp3.1\KanaPractice.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\David\source\repos\KanaPractice\KanaPractice\obj\Debug\netcoreapp3.1\KanaPractice.RazorAssemblyInfo.cache
 C:\Users\David\source\repos\KanaPractice\KanaPractice\obj\Debug\netcoreapp3.1\KanaPractice.RazorAssemblyInfo.cs
 C:\Users\David\source\repos\KanaPractice\KanaPractice\obj\Debug\netcoreapp3.1\KanaPractice.AssemblyInfoInputs.cache
