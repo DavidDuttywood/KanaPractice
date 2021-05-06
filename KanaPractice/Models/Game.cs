@@ -12,6 +12,7 @@ namespace KanaPractice.Models
         public int Lives { get; set; }
         public int Score { get; set; }
 
+
         public Game(IQuestionRepo question)
         {
             this.Questions = question.GetAllQuestions();
@@ -23,7 +24,6 @@ namespace KanaPractice.Models
 
             this.Score = 0;
         }
-         
 
         public QuestionViewModel GetNextQuestion()
         {

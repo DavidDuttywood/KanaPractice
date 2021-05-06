@@ -7,10 +7,16 @@ namespace KanaPractice.Models
 {
     public class SQLQuestionRepo : IQuestionRepo
     {
+        private readonly AppDbContext context;
+
+        public SQLQuestionRepo(AppDbContext context)
+        {
+            this.context = context;
+        }
         public List<Question> GetAllQuestions()
         {
-            //how do i seed data for this to work? o.O
-            throw new NotImplementedException();
+            var check = context.Questions;
+            return new List<Question>();
         }
     }
 }

@@ -25,9 +25,10 @@ namespace KanaPractice
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContextPool<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("QuestionDBConnection")));
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("QuestionDBConnection")));
             services.AddControllersWithViews();
-            services.AddSingleton<IQuestionRepo, MockQuestionRepo>();
+
+            services.AddSingleton<IQuestionRepo, SQLQuestionRepo>();
             services.AddSingleton<Game>();
         }
 
