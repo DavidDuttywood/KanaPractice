@@ -28,7 +28,7 @@ namespace KanaPractice
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("QuestionDBConnection")));
             services.AddControllersWithViews();
 
-            services.AddSingleton<IQuestionRepo, SQLQuestionRepo>();
+            services.AddScoped<IQuestionRepo, SQLQuestionRepo>();
             services.AddSingleton<Game>();
         }
 

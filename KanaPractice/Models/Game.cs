@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,17 +13,27 @@ namespace KanaPractice.Models
         public int Lives { get; set; }
         public int Score { get; set; }
 
+        private readonly IServiceScopeFactory scopeFactory;
 
-        public Game(IQuestionRepo question)
+
+        public Game(IServiceScopeFactory scopeFactory)
         {
-            this.Questions = question.GetAllQuestions();
 
-            //is this janky (to reference this.Questions right after initialising?)
-            this.AnswerBank = this.Questions.Select(o => o.Answer).ToList();
+            this.scopeFactory = scopeFactory;
 
-            this.Lives = 3;
+            using (var scope = scopeFactory.CreateScope())
+            {
+                var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
 
-            this.Score = 0;
+                this.Questions = db.Questions.ToList();
+
+                //is this janky (to reference this.Questions right after initialising?)
+                this.AnswerBank = this.Questions.Select(o => o.Answer).ToList();
+
+                this.Lives = 3;
+
+                this.Score = 0;
+            }
         }
 
         public QuestionViewModel GetNextQuestion()
