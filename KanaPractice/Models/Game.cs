@@ -17,7 +17,7 @@ namespace KanaPractice.Models
 
         public Game(IQuestionRepo questionRepo, IHttpContextAccessor httpContextAccessor)
         {
-            _httpContextAccessor = httpContextAccessor; //this is the beef. new one every request wiping it out? idk
+            _httpContextAccessor = httpContextAccessor;
             _questionRepo = questionRepo;
 
             this.Questions = _questionRepo.GetAllQuestions();

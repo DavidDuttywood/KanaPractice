@@ -33,7 +33,8 @@ namespace KanaPractice
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("QuestionDBConnection")));
             services.AddControllersWithViews();
 
-            services.AddTransient<Game>();
+            services.AddScoped
+                <Game>();
             services.AddHttpContextAccessor();
 
             services.AddTransient<IQuestionRepo, MockQuestionRepo>();
@@ -69,12 +70,5 @@ namespace KanaPractice
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            //WarmUp(app);
         }
-
-        //private void WarmUp(IApplicationBuilder app)
-        //{
-        //    app.ApplicationServices.GetService<Game>();
-        //}
-    }
 }
