@@ -5,44 +5,52 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Session;
 using KanaPractice.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace KanaPractice.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly Quiz _quiz;
+        private readonly Game _game;
 
-        public HomeController(Quiz quiz)
+        public HomeController(Game game)
         {
-            _quiz = quiz;
+            _game = game;
         }
 
         [HttpGet]
         public ViewResult Index()
         {
-            QuestionViewModel qvm = _quiz.GetNextQuestion();
+            HttpContext.Session.SetInt32("Lives", 3);
+            HttpContext.Session.SetInt32("Score", 0);
+
+            QuestionViewModel qvm = _game.GetNextQuestion();
             return View(qvm);
         }
 
         [HttpPost]
         public ViewResult Index(QuestionViewModel question, string chosenAnswer)
         {
-            ModelState.Clear(); //why do i need this?
+            ModelState.Clear();
+
+            int score = Convert.ToInt32(HttpContext.Session.GetInt32("Score"));
+            int lives = Convert.ToInt32(HttpContext.Session.GetInt32("Lives"));
 
             if (question.Answer == chosenAnswer)
-                _quiz.Score++;
+                HttpContext.Session.SetInt32("Score", score+1);
             else
-                _quiz.Lives--;
+                HttpContext.Session.SetInt32("Lives", lives-1);
 
-            if(_quiz.Lives > 0)
+            if (HttpContext.Session.GetInt32("Lives") > 0)
             {
-                QuestionViewModel qvm = _quiz.GetNextQuestion();
+                QuestionViewModel qvm = _game.GetNextQuestion();
                 return View(qvm);
             }
             else
             {
-                GameOverViewModel govm = new GameOverViewModel(_quiz.Score);
+                GameOverViewModel govm = new GameOverViewModel(0);
                 return View("GameOver", govm);
             }
 
@@ -50,8 +58,8 @@ namespace KanaPractice.Controllers
 
         public ActionResult Reset()
         {
-            _quiz.Lives = 3;
-            _quiz.Score = 0;
+            //_game.Lives = 3;
+            //_game.Score = 0;
 
             return RedirectToAction("Index");
         }
