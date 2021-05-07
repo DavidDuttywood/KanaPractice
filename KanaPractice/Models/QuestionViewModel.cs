@@ -24,6 +24,7 @@ namespace KanaPractice.Models
 
         }
 
+        //its cool to explicitly assign params in basic constructors like this.
         public QuestionViewModel(int id, string questiontext, string answer, int lives, int score)
         {
             this.Id = id;

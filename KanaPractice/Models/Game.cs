@@ -13,27 +13,20 @@ namespace KanaPractice.Models
         public int Lives { get; set; }
         public int Score { get; set; }
 
-        private readonly IServiceScopeFactory scopeFactory;
+        private readonly IQuestionRepo _questionRepo;
 
+        public Game(IQuestionRepo questionRepo)
+        { 
+            _questionRepo = questionRepo;
 
-        public Game(IServiceScopeFactory scopeFactory)
-        {
+            this.Questions = _questionRepo.GetAllQuestions();
 
-            this.scopeFactory = scopeFactory;
+            //is this janky (to reference this.Questions right after initialising?)
+            this.AnswerBank = this.Questions.Select(o => o.Answer).ToList();
 
-            using (var scope = scopeFactory.CreateScope())
-            {
-                var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+            this.Lives = 3;
 
-                this.Questions = db.Questions.ToList();
-
-                //is this janky (to reference this.Questions right after initialising?)
-                this.AnswerBank = this.Questions.Select(o => o.Answer).ToList();
-
-                this.Lives = 3;
-
-                this.Score = 0;
-            }
+            this.Score = 0;
         }
 
         public QuestionViewModel GetNextQuestion()
@@ -47,7 +40,7 @@ namespace KanaPractice.Models
             //get the choices for the question
             qvm.PossibleAnswers.Clear();
             qvm.PossibleAnswers.Add(q.Answer);
-            while(qvm.PossibleAnswers.Count < 4)
+            while (qvm.PossibleAnswers.Count < 4)
             {
                 string next = this.AnswerBank[r.Next(0, listSize)];
                 if (!qvm.PossibleAnswers.Contains(next))

@@ -8,11 +8,9 @@ namespace KanaPractice.Models
 {
     public class Question
     {
+        [Key]
         public int Id { get; set; }
-        [Required]
         public string QuestionTextString { get; set; }
-        [Required]
-
         public string Answer { get; set; }
 
         public Question(int id, string text, string answer)
