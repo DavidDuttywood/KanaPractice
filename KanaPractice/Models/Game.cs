@@ -9,6 +9,7 @@ namespace KanaPractice.Models
 {
     public class Game
     {
+        public int QuestionSet { get; set; }
         public List<Question> Questions { get; set; }
         public List<String> AnswerBank { get; set; }
 
@@ -17,6 +18,7 @@ namespace KanaPractice.Models
 
         public Game(IQuestionRepo questionRepo, IHttpContextAccessor httpContextAccessor)
         {
+            QuestionSet = 0;
             _httpContextAccessor = httpContextAccessor;
             _questionRepo = questionRepo;
 
@@ -29,8 +31,15 @@ namespace KanaPractice.Models
 
         public QuestionViewModel GetNextQuestion()
         {
+
+            //This is absolutely TRAGIC and suboptimised. Need to return a smaller filtered question set
+            //during object instanciation. That requires mixing dependency injection with
+            //passed params? Perhaps some factory implementation?
+            Questions = Questions.Where(x => x.SetId == QuestionSet).ToList();
+
             Random r = new Random();
             int listSize = Questions.Count;
+
 
             Question q = Questions[r.Next(0, listSize)];
             QuestionViewModel qvm = new QuestionViewModel(

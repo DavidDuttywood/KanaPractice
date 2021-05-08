@@ -26,10 +26,13 @@ namespace KanaPractice.Controllers
         }
 
         [HttpGet]
-        public ViewResult Game()
+        public ViewResult Game(int id)
         {
             HttpContext.Session.SetInt32("Lives", 3);
             HttpContext.Session.SetInt32("Score", 0);
+            HttpContext.Session.SetInt32("QuestionSet", id);
+            //so shit
+            _game.QuestionSet = Convert.ToInt32(HttpContext.Session.GetInt32("QuestionSet"));
 
             QuestionViewModel qvm = _game.GetNextQuestion();
             return View(qvm);
@@ -40,6 +43,7 @@ namespace KanaPractice.Controllers
         {
             ModelState.Clear();
 
+            _game.QuestionSet = Convert.ToInt32(HttpContext.Session.GetInt32("QuestionSet"));
             int score = Convert.ToInt32(HttpContext.Session.GetInt32("Score"));
             int lives = Convert.ToInt32(HttpContext.Session.GetInt32("Lives"));
 
@@ -63,7 +67,7 @@ namespace KanaPractice.Controllers
 
         public ActionResult Reset()
         {
-            return RedirectToAction("Game");
+            return RedirectToAction("Game", new {id = Convert.ToInt32(HttpContext.Session.GetInt32("QuestionSet"))});
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
