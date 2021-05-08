@@ -10,16 +10,19 @@ namespace KanaPractice.Models
     {
         [Key]
         public int Id { get; set; }
+        public int SetId { get; set; }
         public string QuestionTextString { get; set; }
         public string Answer { get; set; }
 
-        public Question(int id, string text, string answer)
+        public Question(int id, int setId, string text, string answer)
         {
-            this.Id = id;
+            Id = id;
 
-            this.QuestionTextString = text;
+            SetId = setId;
 
-            this.Answer = answer;
+            QuestionTextString = text;
+
+            Answer = answer;
         }
 
     }

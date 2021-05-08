@@ -1,24 +1,10 @@
-﻿@model KanaPractice.Models.QuestionViewModel
-
-@{
+﻿@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <form asp-controller="Home" asp-action="Index" method="post">
-        <input hidden asp-for="Id" />
-        <input hidden asp-for="QuestionTextString" />
-        <input hidden asp-for="Answer" />
-        <p>score: @Model.Score</p>
-        <p>lives: @Model.Lives</p>
-        <div class="test-character">
-            <p>@Model.QuestionTextString</p>
-        </div>
-        @{ //wrap buttons and make 50% wide per button.
-            foreach (string posAnswer in Model.PossibleAnswers)
-            {
-                <button type="submit" class="btn btn-primary btn-lg" name="chosenAnswer" value="@posAnswer" id="SaveNew">@posAnswer</button>
-            }
-        }
-    </form>
-</div>
+    <div class="text-center">
+        <h1>こんにちは！</h1>
+        <img class="sushiImg" src="~/img/cutesushi.png" />
+        <p>Konnichiwa! Thanks for stopping by. If you want to learn Japanese the first step is to get comfortable with the 2 <i>syllabic</i> writing systems; Hiragana and Katakana.</p>
+        <p>Let's first talk about </p>
+    </div>

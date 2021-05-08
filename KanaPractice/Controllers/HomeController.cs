@@ -21,7 +21,12 @@ namespace KanaPractice.Controllers
         }
 
         [HttpGet]
-        public ViewResult Index()
+        public ViewResult Index() {
+            return View();
+        }
+
+        [HttpGet]
+        public ViewResult Game()
         {
             HttpContext.Session.SetInt32("Lives", 3);
             HttpContext.Session.SetInt32("Score", 0);
@@ -31,7 +36,7 @@ namespace KanaPractice.Controllers
         }
 
         [HttpPost]
-        public ViewResult Index(QuestionViewModel question, string chosenAnswer)
+        public ViewResult Game(QuestionViewModel question, string chosenAnswer)
         {
             ModelState.Clear();
 
@@ -50,7 +55,7 @@ namespace KanaPractice.Controllers
             }
             else
             {
-                GameOverViewModel govm = new GameOverViewModel(0);
+                GameOverViewModel govm = new GameOverViewModel(score);
                 return View("GameOver", govm);
             }
 
@@ -58,10 +63,7 @@ namespace KanaPractice.Controllers
 
         public ActionResult Reset()
         {
-            //_game.Lives = 3;
-            //_game.Score = 0;
-
-            return RedirectToAction("Index");
+            return RedirectToAction("Game");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
