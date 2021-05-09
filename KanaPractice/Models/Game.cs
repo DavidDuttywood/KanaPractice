@@ -18,24 +18,21 @@ namespace KanaPractice.Models
 
         public Game(IQuestionRepo questionRepo, IHttpContextAccessor httpContextAccessor)
         {
-            QuestionSet = 0;
             _httpContextAccessor = httpContextAccessor;
             _questionRepo = questionRepo;
+        }
 
-            this.Questions = _questionRepo.GetAllQuestions();
+        //Initialise the question set AFTER the user chooses an input
+        public Game LoadGame(int questionSet)
+        { 
+            Questions = _questionRepo.GetAllQuestionsBySetID(questionSet);
+            AnswerBank = this.Questions.Select(o => o.Answer).ToList();
 
-            //is this janky (to reference this.Questions right after initialising?)
-            this.AnswerBank = this.Questions.Select(o => o.Answer).ToList();
-
+            return this;
         }
 
         public QuestionViewModel GetNextQuestion()
         {
-
-            //This is absolutely TRAGIC and suboptimised. Need to return a smaller filtered question set
-            //during object instanciation. That requires mixing dependency injection with
-            //passed params? Perhaps some factory implementation?
-            Questions = Questions.Where(x => x.SetId == QuestionSet).ToList();
 
             Random r = new Random();
             int listSize = Questions.Count;

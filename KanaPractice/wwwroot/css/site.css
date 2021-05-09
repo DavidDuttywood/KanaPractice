@@ -112,14 +112,14 @@ body {
         padding: 10px;
     }
 
-        .buttonContainer button {
+        .redButton {
             background-color: #dc3545;
             color: white;
         }
 
-        .buttonContainer button:hover {
-           opacity: 0.6;
-        }
+            .redButton:hover {
+                opacity: 0.6;
+            }
 
 .buttonContainer button {
     width: 44%;
