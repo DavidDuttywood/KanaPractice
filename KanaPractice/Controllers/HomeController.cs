@@ -28,7 +28,7 @@ namespace KanaPractice.Controllers
         [HttpGet]
         public ViewResult Game(int id)
         {
-            HttpContext.Session.SetInt32("Lives", 3);
+            HttpContext.Session.SetInt32("Lives", 5);
             HttpContext.Session.SetInt32("Score", 0);
             HttpContext.Session.SetInt32("QuestionSet", id);
             //so shit

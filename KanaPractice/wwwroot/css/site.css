@@ -89,17 +89,48 @@ body {
 
 .gameInformation {
     display: inline-block;
-    width: 400px;
+    width: 100%;
+    max-width: 550px;
+    margin-bottom: 20px;
+    font-size: 1.5em;
 }
 
+    .gameInformation .score{
+        display: inline-block;
+        width: 48%;
+    }
 
-.buttonContainer {
-    width: 400px;
-    margin: 0 auto;
-    padding: 10px;
-}
+    .gameInformation .lives {
+        display: inline-block;
+        width: 48%;
+        text-align: left;
+    }
+
+    .buttonContainer {
+        width: 400px;
+        margin: 0 auto;
+        padding: 10px;
+    }
+
+        .buttonContainer button {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .buttonContainer button:hover {
+           opacity: 0.6;
+        }
 
 .buttonContainer button {
     width: 44%;
     margin: 10px;
+}
+
+.padded-section {
+    margin: 30px 0;
+    padding: 20px;
+}
+
+.pink {
+    background-color: mistyrose;
 }

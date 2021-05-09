@@ -1,0 +1,12 @@
+Singletons:
+You can't use something added as a transient service in a singleton.
+Initially Singleton was made for Game object as most calls are static but that doesnt in and of itself quyalify a singleton.
+
+Interfacing the repo:
+Allows you to implement classes (Game here) without knowledge of data source. obviously a good idea.
+
+Session: Decent for holding small game data
+
+PATTERN:
+Dependency Injection AND custom params are hard to pass together into a constructor.
+The rewrite needs to consider a Factory or some kind of partial implementation.
