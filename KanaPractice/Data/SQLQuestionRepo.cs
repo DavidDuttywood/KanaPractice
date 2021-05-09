@@ -18,5 +18,10 @@ namespace KanaPractice.Models
             var check = context.Questions;
             return new List<Question>();
         }
+
+        public List<Question> GetAllQuestionsBySetID(int setId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

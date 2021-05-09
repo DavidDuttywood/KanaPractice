@@ -10,3 +10,13 @@ Session: Decent for holding small game data
 PATTERN:
 Dependency Injection AND custom params are hard to pass together into a constructor.
 The rewrite needs to consider a Factory or some kind of partial implementation.
+
+
+Version1 is completed. 9th May.
+
+Why is it bad?
+
+- Handling the questionSet in State makes now sense. If it becomes a constructor argument for game
+  then I can query a db or in memory list for a smaller set of questions.
+
+- Passing it into Game means I could pass it into the GetAllQuestions questions and refactor to "GetAllQuestionsBySet"
