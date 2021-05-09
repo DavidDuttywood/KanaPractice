@@ -38,7 +38,7 @@ namespace KanaPractice
 
             //Game needs these injected into it
             services.AddHttpContextAccessor();
-            services.AddTransient<IQuestionRepo, MockQuestionRepo>();
+            services.AddTransient<IQuestionRepo, SQLQuestionRepo>();
 
             services.AddSession();
 

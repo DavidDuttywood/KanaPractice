@@ -15,13 +15,12 @@ namespace KanaPractice.Models
         }
         public List<Question> GetAllQuestions()
         {
-            var check = context.Questions;
-            return new List<Question>();
+            return context.Questions.ToList();
         }
 
         public List<Question> GetAllQuestionsBySetID(int setId)
         {
-            throw new NotImplementedException();
+            return context.Questions.Where(q => q.SetId == setId).ToList();
         }
     }
 }
