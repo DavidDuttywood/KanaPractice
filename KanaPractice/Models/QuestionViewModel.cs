@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace KanaPractice.Models
 {
@@ -13,7 +10,7 @@ namespace KanaPractice.Models
 
         public string Answer { get; set; }
 
-        public List<String> PossibleAnswers { get; set; }
+        public List<string> PossibleAnswers { get; set; } = new List<string>();
 
         public int Lives { get; set; }
 
@@ -24,20 +21,19 @@ namespace KanaPractice.Models
 
         }
 
-        //its cool to explicitly assign params in basic constructors like this.
         public QuestionViewModel(int id, string questiontext, string answer, int lives, int score)
         {
-            this.Id = id;
+            Id = id;
 
-            this.QuestionTextString = questiontext;
+            QuestionTextString = questiontext;
 
-            this.Answer = answer;
+            Answer = answer;
 
-            this.PossibleAnswers = new List<String>();
+            PossibleAnswers = new List<string>();
 
-            this.Lives = lives;
+            Lives = lives;
 
-            this.Score = score;
+            Score = score;
         }
     }
 }

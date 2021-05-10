@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace KanaPractice.Models
 {
@@ -14,7 +12,31 @@ namespace KanaPractice.Models
             Questions = new List<Question>();
             Questions.Add(new Question()
             {
-                Id = 1, SetId = 1, QuestionTextString = "あ", Answer = "a"
+                Id = 1,
+                SetId = 1,
+                QuestionTextString = "あ",
+                Answer = "a"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 2,
+                SetId = 1,
+                QuestionTextString = "あ",
+                Answer = "a"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 3,
+                SetId = 1,
+                QuestionTextString = "あ",
+                Answer = "a"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 4,
+                SetId = 1,
+                QuestionTextString = "あ",
+                Answer = "a"
             });
             //Questions.Add(new Question(1, 1, "あ", "a"));
             //Questions.Add(new Question(2, 1, "い", "i"));

@@ -1,26 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace KanaPractice.Models
 {
     public class SQLQuestionRepo : IQuestionRepo
     {
-        private readonly AppDbContext context;
+        private readonly AppDbContext _context;
 
         public SQLQuestionRepo(AppDbContext context)
         {
-            this.context = context;
+            _context = context;
         }
         public List<Question> GetAllQuestions()
         {
-            return context.Questions.ToList();
+            return _context.Questions.ToList();
         }
 
         public List<Question> GetAllQuestionsBySetID(int setId)
         {
-            return context.Questions.Where(q => q.SetId == setId).ToList();
+            return _context.Questions.Where(q => q.SetId == setId).ToList();
         }
     }
 }

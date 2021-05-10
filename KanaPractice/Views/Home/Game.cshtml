@@ -1,14 +1,14 @@
 ﻿@model KanaPractice.Models.QuestionViewModel
 
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Game";
 }
 
 <div class="text-center">
     <form asp-controller="Home" asp-action="Game" method="post">
-        <input hidden asp-for="Id" />
-        <input hidden asp-for="QuestionTextString" />
-        <input hidden asp-for="Answer" />
+        <input hidden name="id" value="@Model.Id"/>
+        <input hidden name="questionTextString" value="@Model.QuestionTextString" />
+        <input hidden name="answer" value="@Model.Answer"/>
         <div class="gameInformation">
             <p class="score">Score: @Model.Score</p>
             <div class="lives">
@@ -26,7 +26,7 @@
             @{
                 foreach (string posAnswer in Model.PossibleAnswers)
                 { 
-                    <button type="submit" class="btn btn-lg redButton" name="chosenAnswer" value="@posAnswer" id="SaveNew">@posAnswer</button>
+                    <button type="submit" class="btn btn-lg redButton" name="chosenAnswer" value="@posAnswer">@posAnswer</button>
                 }
             }
         </div>

@@ -1,21 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Session;
+﻿using KanaPractice.Enums;
 using KanaPractice.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace KanaPractice.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly Game _game;
+        private readonly IGame _game;
 
-        public HomeController(Game game)
+        public HomeController(IGame game)
         {
             _game = game;
         }
@@ -32,29 +27,20 @@ namespace KanaPractice.Controllers
             HttpContext.Session.SetInt32("Score", 0);
             HttpContext.Session.SetInt32("QuestionSet", id);
          
-            _game.LoadGame(Convert.ToInt32(HttpContext.Session.GetInt32("QuestionSet")));
-
-            QuestionViewModel qvm = _game.GetNextQuestion();
+            QuestionViewModel qvm = _game.GetNextQuestion(id);
             return View(qvm);
         }
 
         [HttpPost]
         public ViewResult Game(QuestionViewModel question, string chosenAnswer)
         {
-            ModelState.Clear();
 
-            _game.LoadGame(Convert.ToInt32(HttpContext.Session.GetInt32("QuestionSet")));
-            int score = Convert.ToInt32(HttpContext.Session.GetInt32("Score"));
-            int lives = Convert.ToInt32(HttpContext.Session.GetInt32("Lives"));
+            int id = HttpContext.Session.GetInt32("QuestionSet") ?? (int)Gametype.Hiragana;
+            int score = HttpContext.Session.GetInt32("Score") ?? default;
 
-            if (question.Answer == chosenAnswer)
-                HttpContext.Session.SetInt32("Score", score+1);
-            else
-                HttpContext.Session.SetInt32("Lives", lives-1);
-
-            if (HttpContext.Session.GetInt32("Lives") > 0)
+            if (_game.Validate(question.Answer, chosenAnswer))
             {
-                QuestionViewModel qvm = _game.GetNextQuestion();
+                QuestionViewModel qvm = _game.GetNextQuestion(id);
                 return View(qvm);
             }
             else
@@ -67,7 +53,7 @@ namespace KanaPractice.Controllers
 
         public ActionResult Reset()
         {
-            return RedirectToAction("Game", new {id = Convert.ToInt32(HttpContext.Session.GetInt32("QuestionSet"))});
+            return RedirectToAction("Game", new {id = HttpContext.Session.GetInt32("QuestionSet") ?? (int)Gametype.Hiragana });
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

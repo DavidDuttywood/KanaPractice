@@ -1,17 +1,15 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace KanaPractice.Models
 {
-    public class Game
+    public class Game : IGame
     {
         public int QuestionSet { get; set; }
         public List<Question> Questions { get; set; }
-        public List<String> AnswerBank { get; set; }
+        public List<string> AnswerBank { get; set; }
 
         private readonly IQuestionRepo _questionRepo;
         private readonly IHttpContextAccessor _httpContextAccessor;
@@ -22,21 +20,13 @@ namespace KanaPractice.Models
             _questionRepo = questionRepo;
         }
 
-        //Initialise the question set AFTER the user chooses an input
-        public Game LoadGame(int questionSet)
-        { 
-            Questions = _questionRepo.GetAllQuestionsBySetID(questionSet);
-            AnswerBank = this.Questions.Select(o => o.Answer).ToList();
-
-            return this;
-        }
-
-        public QuestionViewModel GetNextQuestion()
+        public QuestionViewModel GetNextQuestion(int questionSet)
         {
+            Questions = _questionRepo.GetAllQuestionsBySetID(questionSet);
+            AnswerBank = Questions.Select(o => o.Answer).ToList();
 
             Random r = new Random();
             int listSize = Questions.Count;
-
 
             Question q = Questions[r.Next(0, listSize)];
             QuestionViewModel qvm = new QuestionViewModel(
@@ -52,7 +42,7 @@ namespace KanaPractice.Models
             qvm.PossibleAnswers.Add(q.Answer);
             while (qvm.PossibleAnswers.Count < 4)
             {
-                string next = this.AnswerBank[r.Next(0, listSize)];
+                string next = AnswerBank[r.Next(0, listSize)];
                 if (!qvm.PossibleAnswers.Contains(next))
                 {
                     qvm.PossibleAnswers.Add(next);
@@ -63,6 +53,25 @@ namespace KanaPractice.Models
             qvm.PossibleAnswers = qvm.PossibleAnswers.OrderBy(x => Guid.NewGuid()).ToList();
 
             return qvm;
+        }
+
+        public bool Validate(string correctAnswer, string chosenAnswer)
+        {
+            int score = Convert.ToInt32(_httpContextAccessor.HttpContext.Session.GetInt32("Score"));
+            int lives = Convert.ToInt32(_httpContextAccessor.HttpContext.Session.GetInt32("Lives"));
+
+            if (correctAnswer == chosenAnswer)
+            {
+                _httpContextAccessor.HttpContext.Session.SetInt32("Score", score + 1);
+                return true;
+            }
+            else
+            {
+                --lives;
+                _httpContextAccessor.HttpContext.Session.SetInt32("Lives", lives);
+            }
+
+            return lives > 0;
         }
     }
 }
