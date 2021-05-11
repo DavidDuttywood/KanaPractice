@@ -1,5 +1,10 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
+﻿img {
+    -khtml-user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
 
 a.navbar-brand {
   white-space: normal;
@@ -133,4 +138,19 @@ body {
 
 .pink {
     background-color: mistyrose;
+}
+
+#motivationalMessage {
+    position: absolute;
+    margin-top: 100px;
+}
+
+#motivationalMessage img {
+    height: 150px;
+}
+
+.gameOverImage {
+    pointer-events: none;
+    height: 300px;
+    margin-bottom: 20px;
 }

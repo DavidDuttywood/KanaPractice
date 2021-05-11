@@ -4,33 +4,41 @@
     ViewData["Title"] = "Game";
 }
 
+@section scripts {
+    <script src="~/js/site.js"></script>
+}
+
 <div class="text-center">
     <form asp-controller="Home" asp-action="Game" method="post">
         <input hidden name="id" value="@Model.Id" />
         <input hidden name="questionTextString" value="@Model.QuestionTextString" />
         <input hidden name="answer" value="@Model.Answer" />
         <div class="gameInformation">
-            <p class="score">Score: @Model.Score</p>
+            <p class="score">Score: <span id="score">@Model.Score</span></p>
             <div class="lives">
                 Lives: <span>
                     @{for (int x = 0; x < Model.Lives; x++)
                         {
                             <span><i class="fas fa-heart"></i></span>
                         }
-                }
-            </span>
+                    }
+                </span>
+            </div>
         </div>
-    </div>
-    <div class="test-character">
-        <p>@Model.QuestionTextString</p>
-    </div>
-    <div class="buttonContainer">
-        @{
-            foreach (string posAnswer in Model.PossibleAnswers)
-            {
-                <button type="submit" class="btn btn-lg redButton" name="chosenAnswer" value="@posAnswer">@posAnswer</button>
+        <div class="test-character">
+            <p>@Model.QuestionTextString</p>
+        </div>
+        <div class="buttonContainer">
+            @{
+                foreach (string posAnswer in Model.PossibleAnswers)
+                {
+                    <button type="submit" class="btn btn-lg redButton" name="chosenAnswer" value="@posAnswer">@posAnswer</button>
+                }
             }
-        }
+        </div>
+    </form>
+    <div style="display: none;" id="motivationalMessage">
+        <h5 id="motivationalMessageContent"></h5>
+        <img src="~/img/cutesushi.png" />
     </div>
-</form>
 </div>
