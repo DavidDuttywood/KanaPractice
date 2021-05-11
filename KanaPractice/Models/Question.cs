@@ -10,16 +10,5 @@ namespace KanaPractice.Models
         public string QuestionTextString { get; set; }
         public string Answer { get; set; }
 
-        //public Question(int id, int setId, string text, string answer)
-        //{
-        //    Id = id;
-
-        //    SetId = setId;
-
-        //    QuestionTextString = text;
-
-        //    Answer = answer;
-        //}
-
     }
 }

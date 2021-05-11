@@ -22,16 +22,16 @@ namespace KanaPractice
         {
             services.AddDistributedMemoryCache();
 
-
-
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("QuestionDBConnection")));
             services.AddControllersWithViews();
 
             services.AddScoped<IGame, Game>();
-
-            //Game needs these injected into it
             services.AddHttpContextAccessor();
-            services.AddTransient<IQuestionRepo, SQLQuestionRepo>();
+
+
+            //MockQuestionRepo loads from in memory list, change to SQLQuestionRepo for SQL implementation.
+            //run migrations first.
+            services.AddTransient<IQuestionRepo, MockQuestionRepo>();
 
             services.AddSession();
 

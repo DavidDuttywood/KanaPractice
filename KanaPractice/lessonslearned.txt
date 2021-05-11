@@ -1,4 +1,4 @@
-Singletons:
+﻿Singletons:
 You can't use something added as a transient service in a singleton.
 Initially Singleton was made for Game object as most calls are static but that doesnt in and of itself quyalify a singleton.
 
@@ -20,3 +20,6 @@ Why is it bad?
   then I can query a db or in memory list for a smaller set of questions.
 
 - Passing it into Game means I could pass it into the GetAllQuestions questions and refactor to "GetAllQuestionsBySet"
+
+11/05
+- can i get setID out of the session object somehow?

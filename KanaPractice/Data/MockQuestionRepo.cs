@@ -21,53 +21,261 @@ namespace KanaPractice.Models
             {
                 Id = 2,
                 SetId = 1,
-                QuestionTextString = "あ",
-                Answer = "a"
+                QuestionTextString = "い",
+                Answer = "i"
             });
             Questions.Add(new Question()
             {
                 Id = 3,
                 SetId = 1,
-                QuestionTextString = "あ",
-                Answer = "a"
+                QuestionTextString = "う",
+                Answer = "u"
             });
             Questions.Add(new Question()
             {
                 Id = 4,
                 SetId = 1,
-                QuestionTextString = "あ",
+                QuestionTextString = "え",
+                Answer = "e"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 5,
+                SetId = 1,
+                QuestionTextString = "お",
+                Answer = "o"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 6,
+                SetId = 1,
+                QuestionTextString = "か",
+                Answer = "ka"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 7,
+                SetId = 1,
+                QuestionTextString = "き",
+                Answer = "ki"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 8,
+                SetId = 1,
+                QuestionTextString = "く",
+                Answer = "ku"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 9,
+                SetId = 1,
+                QuestionTextString = "け",
+                Answer = "ke"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 10,
+                SetId = 1,
+                QuestionTextString = "こ",
+                Answer = "ko"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 11,
+                SetId = 1,
+                QuestionTextString = "さ",
+                Answer = "sa"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 12,
+                SetId = 1,
+                QuestionTextString = "し",
+                Answer = "shi"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 13,
+                SetId = 1,
+                QuestionTextString = "す",
+                Answer = "su"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 14,
+                SetId = 1,
+                QuestionTextString = "せ",
+                Answer = "se"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 15,
+                SetId = 1,
+                QuestionTextString = "な",
+                Answer = "na"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 16,
+                SetId = 1,
+                QuestionTextString = "に",
+                Answer = "ni"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 17,
+                SetId = 1,
+                QuestionTextString = "ぬ",
+                Answer = "nu"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 18,
+                SetId = 1,
+                QuestionTextString = "ね",
+                Answer = "ne"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 19,
+                SetId = 1,
+                QuestionTextString = "の",
+                Answer = "no"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 20,
+                SetId = 2,
+                QuestionTextString = "ア",
                 Answer = "a"
             });
-            //Questions.Add(new Question(1, 1, "あ", "a"));
-            //Questions.Add(new Question(2, 1, "い", "i"));
-            //Questions.Add(new Question(3, 1, "う", "u"));
-            //Questions.Add(new Question(4, 1, "え", "e"));
-            //Questions.Add(new Question(5, 1, "お", "o"));
-            //Questions.Add(new Question(6, 1, "か", "ka"));
-            //Questions.Add(new Question(7, 1, "き", "ki"));
-            //Questions.Add(new Question(8, 1, "く", "ku"));
-            //Questions.Add(new Question(9, 1, "け", "ke"));
-            //Questions.Add(new Question(10, 1, "こ", "ko"));
-            //Questions.Add(new Question(11, 1, "さ", "sa"));
-            //Questions.Add(new Question(12, 1, "し", "shi"));
-            //Questions.Add(new Question(13, 1, "す", "su"));
-            //Questions.Add(new Question(14, 1, "せ", "se"));
-            //Questions.Add(new Question(15, 1, "そ", "so"));
-            //Questions.Add(new Question(16, 2, "ア", "a"));
-            //Questions.Add(new Question(17, 2, "イ", "i"));
-            //Questions.Add(new Question(18, 2, "ウ", "u"));
-            //Questions.Add(new Question(19, 2, "エ", "e"));
-            //Questions.Add(new Question(20, 2, "オ", "o"));
-            //Questions.Add(new Question(21, 2, "カ", "ka"));
-            //Questions.Add(new Question(22, 2, "キ", "ki"));
-            //Questions.Add(new Question(23, 2, "ク", "ku"));
-            //Questions.Add(new Question(24, 2, "ケ", "ke"));
-            //Questions.Add(new Question(25, 2, "コ", "ko"));
-            //Questions.Add(new Question(26, 2, "サ", "sa"));
-            //Questions.Add(new Question(27, 2, "シ", "shi"));
-            //Questions.Add(new Question(28, 2, "ス", "su"));
-            //Questions.Add(new Question(29, 2, "セ", "se"));
-            //Questions.Add(new Question(30, 2, "ソ", "so"));
+            Questions.Add(new Question()
+            {
+                Id = 21,
+                SetId = 2,
+                QuestionTextString = "イ",
+                Answer = "i"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 22,
+                SetId = 2,
+                QuestionTextString = "ウ",
+                Answer = "u"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 23,
+                SetId = 2,
+                QuestionTextString = "エ",
+                Answer = "e"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 24,
+                SetId = 2,
+                QuestionTextString = "オ",
+                Answer = "o"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 25,
+                SetId = 2,
+                QuestionTextString = "カ",
+                Answer = "ka"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 26,
+                SetId = 2,
+                QuestionTextString = "キ",
+                Answer = "ki"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 27,
+                SetId = 2,
+                QuestionTextString = "ク",
+                Answer = "ku"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 28,
+                SetId = 2,
+                QuestionTextString = "ケ",
+                Answer = "ke"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 29,
+                SetId = 2,
+                QuestionTextString = "コ",
+                Answer = "ko"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 30,
+                SetId = 2,
+                QuestionTextString = "サ",
+                Answer = "sa"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 31,
+                SetId = 2,
+                QuestionTextString = "シ",
+                Answer = "shi"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 32,
+                SetId = 2,
+                QuestionTextString = "ス",
+                Answer = "su"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 33,
+                SetId = 2,
+                QuestionTextString = "セ",
+                Answer = "se"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 34,
+                SetId = 2,
+                QuestionTextString = "ナ",
+                Answer = "na"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 35,
+                SetId = 2,
+                QuestionTextString = "ニ",
+                Answer = "ni"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 36,
+                SetId = 2,
+                QuestionTextString = "ヌ",
+                Answer = "nu"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 37,
+                SetId = 2,
+                QuestionTextString = "ネ",
+                Answer = "ne"
+            });
+            Questions.Add(new Question()
+            {
+                Id = 38,
+                SetId = 2,
+                QuestionTextString = "ノ",
+                Answer = "no"
+            });
         }
 
 

@@ -6,29 +6,31 @@
 
 <div class="text-center">
     <form asp-controller="Home" asp-action="Game" method="post">
-        <input hidden name="id" value="@Model.Id"/>
+        <input hidden name="id" value="@Model.Id" />
         <input hidden name="questionTextString" value="@Model.QuestionTextString" />
-        <input hidden name="answer" value="@Model.Answer"/>
+        <input hidden name="answer" value="@Model.Answer" />
         <div class="gameInformation">
             <p class="score">Score: @Model.Score</p>
             <div class="lives">
-                Lives: <span>@{for (int x = 0; x < Model.Lives; x++)
-                    {
-                        <span><i class="fas fa-heart"></i></span>
-                    }
-                }</span>
-            </div>
-        </div>
-        <div class="test-character">
-            <p>@Model.QuestionTextString</p>
-        </div>
-        <div class="buttonContainer">
-            @{
-                foreach (string posAnswer in Model.PossibleAnswers)
-                { 
-                    <button type="submit" class="btn btn-lg redButton" name="chosenAnswer" value="@posAnswer">@posAnswer</button>
+                Lives: <span>
+                    @{for (int x = 0; x < Model.Lives; x++)
+                        {
+                            <span><i class="fas fa-heart"></i></span>
+                        }
                 }
-            }
+            </span>
         </div>
-    </form>
+    </div>
+    <div class="test-character">
+        <p>@Model.QuestionTextString</p>
+    </div>
+    <div class="buttonContainer">
+        @{
+            foreach (string posAnswer in Model.PossibleAnswers)
+            {
+                <button type="submit" class="btn btn-lg redButton" name="chosenAnswer" value="@posAnswer">@posAnswer</button>
+            }
+        }
+    </div>
+</form>
 </div>

@@ -38,7 +38,6 @@ namespace KanaPractice.Models
              );
 
             //get the choices for the question
-            qvm.PossibleAnswers.Clear();
             qvm.PossibleAnswers.Add(q.Answer);
             while (qvm.PossibleAnswers.Count < 4)
             {
